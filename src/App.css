@@ -1,6 +1,80 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
 }
+
+.Card {
+  --margin: 8px;
+  margin: var(--margin);
+  height: calc(100% - var(--margin) * 2);
+  width: calc(100% - var(--margin) * 2);
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.NavbarWrapper {
+  flex: 0 0 100px;
+  width: 100%;
+  background-color: #eaeaea;
+}
+
+.NavbarBody {
+  background: white;
+  color: black;
+}
+
+.Body {
+  width: 100%;
+  flex: 1 2 auto;
+  min-height: 0;
+  display: flex;
+  flex-flow: row;
+}
+
+.LeftSide {
+  flex: 1 1 auto;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.RightSide {
+  flex: 0 1 400px;
+  height: 100%;
+}
+
+.NotepadWrapper {
+  flex: 0 1 400px;
+  height: 100%;
+  background-color: #eaeaea;
+}
+
+.NotepadBody {
+  background: white;
+  color: black;
+}
+
+.PlayerWrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  background-color: black;
+}
+
+.LinkshareWrapper {
+  width: 100%;
+  flex: 0 1 100px;
+  background-color: #eaeaea;
+}
+
+.LinkshareBody {
+  background: white;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -14,6 +88,7 @@
 }
 
 .App-header {
+  text-align: center;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
