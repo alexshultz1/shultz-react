@@ -1,33 +1,50 @@
 import React from 'react';
 import '../App.css';
+import { connect } from 'react-redux'
+import { startNewSession } from '../actions';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      youtubeLink: 'https://www.youtube.com/watch?v=ru4U_T83uOU'
+      youtubeVideoId: this.props.videoId,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleStartNewSession = this.handleStartNewSession.bind(this);
   }
 
   handleChange(e) {
-    this.setState({ youtubeLink: e.target.value });
+    this.setState({ youtubeVideoId: e.target.value });
+  }
+
+  handleStartNewSession() {
+    this.props.startNewSession(this.state.youtubeVideoId);
+
+    this.setState({ youtubeVideoId: 'szFLA4_pwew' });
   }
 
   render() {
     return <div className="Navbar Card">
-      YouTube Link:
+      YouTube Video ID:
       <input type="text"
-             value={ this.state.youtubeLink }
+             value={ this.state.youtubeVideoId }
              onChange={ this.handleChange }
              className="YoutubeInput"/>
-      <button onClick={ () => console.log('new youtube link:', this.state.youtubeLink) }>
+      <button onClick={ this.handleStartNewSession }>
         Start new session
       </button>
     </div>
   }
 }
 
-export default Navbar;
+
+const mapStateToProps = state => {
+  return state.currentSession;
+};
+
+export default connect(
+    mapStateToProps,
+    { startNewSession }
+)(Navbar)

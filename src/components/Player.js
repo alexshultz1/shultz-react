@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import { connect } from 'react-redux'
 
 class Player extends React.Component {
   constructor(props) {
@@ -29,7 +30,9 @@ class Player extends React.Component {
   render() {
     return (
       <div className="PlayerWrapper" ref={this.myRef}>
-        <ReactIFrame width={this.state.iFrameWidth} height={this.state.iFrameHeight} src="https://www.youtube.com/embed/ru4U_T83uOU?start=65"/>
+        <ReactIFrame width={this.state.iFrameWidth}
+                     height={this.state.iFrameHeight}
+                     src={'https://www.youtube.com/embed/' + this.props.videoId}/>
       </div>
     );
   }
@@ -38,9 +41,21 @@ class Player extends React.Component {
 class ReactIFrame extends React.Component {
   render() {
     return(
-        <iframe src={this.props.src} height={this.props.height} width={this.props.width} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <iframe src={this.props.src}
+                height={this.props.height}
+                width={this.props.width}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen>
+        </iframe>
     )
   }
 }
 
-export default Player;
+const mapStateToProps = state => {
+  return state.currentSession;
+};
+
+export default connect(
+    mapStateToProps,
+)(Player)
