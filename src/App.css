@@ -8,6 +8,16 @@
 .Navbar {
   flex: 0 0 50px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.YoutubeInput {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 400px;
+  height: 20px;
 }
 
 .Card {
