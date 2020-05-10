@@ -6,18 +6,59 @@
 }
 
 .Navbar {
-  flex: 0 0 50px;
+  flex: 0 0 150px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.Title {
+  width: 50%;
+  padding-left: 40px;
+  font-size: 80px;
+  font-family: Avenir;
+  color: #ababab;
+}
+
+.Options {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.Presets {
+  display: flex;
+}
+
+.Preset {
+  margin-left: 20px;
+}
+
+.Selected {
+  background-color: #6ac8ff;
+}
+
+.CustomInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.InputPair {
+  margin-top: 15px;
+  display: flex;
 }
 
 .YoutubeInput {
-  margin-left: 10px;
   margin-right: 10px;
   width: 400px;
   height: 20px;
+}
+
+button {
+  background-color: buttonface;
 }
 
 .Card {

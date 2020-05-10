@@ -10,7 +10,7 @@ class AppBody extends React.Component {
         <div className="Body">
           <div className="LeftSide">
             <Player/>
-            <Linkshare/>
+            {/*<Linkshare/>*/}
           </div>
           <div className="RightSide">
             <Notepad/>

@@ -39,7 +39,7 @@ const newSession = (state = initialState, action) => {
 const store = createStore(newSession, initialState);
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
-store.dispatch(startNewSession('szFLA4_pwew'));
+store.dispatch(startNewSession('ru4U_T83uOU'));
 
 
 

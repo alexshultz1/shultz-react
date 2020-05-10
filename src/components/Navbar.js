@@ -9,6 +9,20 @@ class Navbar extends React.Component {
 
     this.state = {
       youtubeVideoId: this.props.videoId,
+      presets: [
+        {
+          label: 'Cooking',
+          id: 'ru4U_T83uOU',
+        },
+        {
+          label: 'Coding React',
+          id: 'sBws8MSXN7A',
+        },
+        {
+          label: "Solve a Rubik's Cube",
+          id: 'R-R0KrXvWbc',
+        },
+      ],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,22 +33,51 @@ class Navbar extends React.Component {
     this.setState({ youtubeVideoId: e.target.value });
   }
 
-  handleStartNewSession() {
-    this.props.startNewSession(this.state.youtubeVideoId);
+  handleStartNewSession(videoId) {
+    this.props.startNewSession(videoId);
+    setTimeout(() => this.setState({ youtubeVideoId: this.props.videoId }), 0);
+  }
 
-    this.setState({ youtubeVideoId: 'szFLA4_pwew' });
+  inputSameAsCurrentSession() {
+    return this.state.youtubeVideoId === this.props.videoId;
+  }
+
+  buttonPresets() {
+    return this.state.presets.map(({ label, id }) => {
+      return (
+          <button key={id}
+                  onClick={ this.handleStartNewSession.bind(this, id)}
+                  className={this.props.videoId === id ? 'Preset Selected' : 'Preset'}>
+            {label}
+          </button>
+      );
+    });
   }
 
   render() {
     return <div className="Navbar Card">
-      YouTube Video ID:
-      <input type="text"
-             value={ this.state.youtubeVideoId }
-             onChange={ this.handleChange }
-             className="YoutubeInput"/>
-      <button onClick={ this.handleStartNewSession }>
-        Start new session
-      </button>
+      <div className="Title">
+        SHULTZ-CAST
+      </div>
+      <div className="Options">
+        <div className="Presets">
+          Start session with one of these topics:
+          {this.buttonPresets()}
+        </div>
+        <div className="CustomInput">
+          <span className="Info">Or, enter a valid Youtube video ID and start your own session:</span>
+          <div className="InputPair">
+            <input type="text"
+                   value={ this.state.youtubeVideoId }
+                   onChange={ this.handleChange }
+                   className="YoutubeInput"/>
+            <button onClick={ this.handleStartNewSession.bind(this, this.state.youtubeVideoId) }
+                    disabled={ this.props.videoId === this.state.youtubeVideoId }>
+              Start new session
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   }
 }
