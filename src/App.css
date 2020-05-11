@@ -13,15 +13,15 @@
 }
 
 .Title {
-  width: 50%;
+  width: 30%;
   padding-left: 40px;
-  font-size: 80px;
+  font-size: 65px;
   font-family: Avenir;
   color: #ababab;
 }
 
 .Options {
-  width: 50%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@
 }
 
 .Preset {
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .Selected {
@@ -53,12 +53,22 @@
 
 .YoutubeInput {
   margin-right: 10px;
-  width: 400px;
+  width: 315px;
   height: 20px;
 }
 
 button {
   background-color: buttonface;
+}
+
+.LoadPrevious {
+  --padding: 20px;
+  padding-right: var(--padding);
+  width: calc(30% - var(--padding));
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: space-between;
 }
 
 .Card {
@@ -86,6 +96,54 @@ button {
   --padding: 5px;
   padding: var(--padding);
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Header {
+  flex: 0 0 auto;
+  font-size: 24px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.NotepadInfo {
+  font-size: 14px;
+  color: #ababab;
+}
+
+.Notes {
+  flex: 1 1 auto;
+  padding: 0 5px 0 5px;
+  overflow-y: auto;
+}
+
+.Note {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.NoteText {
+  flex: 1 1 auto;
+  word-wrap: normal;
+}
+
+.NoteTime {
+  color: #ababab;
+  flex: 0 0 100px;
+  text-align: right;
+}
+
+.NotepadInput  {
+  flex: 0 1 100px;
+  width: 100%;
+}
+
+textarea {
+  width: 98%;
+  height: 95%;
 }
 
 .LeftSide {
