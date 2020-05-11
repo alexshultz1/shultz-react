@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/shultz-react/precache-manifest.f0b0105a98c687d9d008815311c92d65.js"
+  "/shultz-react/precache-manifest.5360a48f47d557133cbbea005280c253.js"
 );
 
 self.addEventListener('message', (event) => {
