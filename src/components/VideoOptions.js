@@ -8,7 +8,7 @@ class VideoOptions extends React.Component {
     super(props);
 
     this.state = {
-      youtubeVideoId: this.props.videoId,
+      youtubeVideoId: '',
       presets: [
         {
           label: 'Cooking',
@@ -35,7 +35,7 @@ class VideoOptions extends React.Component {
 
   handleStartNewSession(videoId) {
     this.props.startNewSession(videoId);
-    setTimeout(() => this.setState({ youtubeVideoId: this.props.videoId }), 0);
+    setTimeout(() => this.setState({ youtubeVideoId: '' }), 0);
   }
 
   buttonPresets() {

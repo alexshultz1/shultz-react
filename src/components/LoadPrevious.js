@@ -1,14 +1,34 @@
 import React from 'react';
 import '../App.css';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { loadPreviousSession } from '../actions';
+
 
 class LoadPrevious extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { value: 'placeholder' };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleLoadPreviousSession = this.handleLoadPreviousSession.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value })
+  }
+
+  handleLoadPreviousSession() {
+    this.props.loadPreviousSession(this.state.value);
+    this.setState({ value: 'placeholder' });
+  }
+
   archivedSessionOptions() {
     return this.props.archivedSessions.map((oldSess) => {
       return (
-          <option value={oldSess.id} key={oldSess.id}>
-            {oldSess.videoId + ' ' + oldSess.sessionStart.toLocaleTimeString() + ' - ' + oldSess.sessionEnd.toLocaleTimeString()}
-          </option>
+        <option value={oldSess.id} key={oldSess.id}>
+          {oldSess.videoId + '   ------   Last modified: ' + oldSess.lastModified.toLocaleTimeString()}
+        </option>
       )
     });
   }
@@ -17,11 +37,14 @@ class LoadPrevious extends React.Component {
     return (
       <div className="LoadPrevious">
         Previous Sessions
-        <select disabled={this.props.archivedSessions.length < 1}>
-          <option value="" disabled selected>Choose a previous session to load</option>
+        <select value={this.state.value}
+                disabled={this.props.archivedSessions.length < 1}
+                onChange={this.handleChange}>
+          <option value="placeholder" disabled>Choose a previous session to load</option>
           {this.archivedSessionOptions()}
         </select>
-        <button disabled={this.props.archivedSessions.length < 1}>
+        <button disabled={this.state.value === 'placeholder'}
+                onClick={this.handleLoadPreviousSession}>
           Load Previous Session
         </button>
       </div>
@@ -38,4 +61,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
+    { loadPreviousSession }
 )(LoadPrevious)

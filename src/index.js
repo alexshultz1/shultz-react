@@ -26,12 +26,31 @@ const reducer = (state = initialState, action) => {
           ...state.archivedSessions,
           {
             ...state.currentSession,
-            sessionEnd: new Date(),
+            lastModified: new Date(),
           }
         ] : [
           ...state.archivedSessions,
         ],
       });
+    case 'LOAD_PREVIOUS_SESSION':
+      const prevSession = state.archivedSessions.find(oldSess => oldSess.id === action.sessionId);
+      if (prevSession) {
+        return Object.assign({}, state, {
+          // remove chosen selection to archived, while adding current session
+          archivedSessions: [
+            ...state.archivedSessions.filter(oldSess => oldSess.id !== action.sessionId),
+            {
+              ...state.currentSession,
+              lastModified: new Date(),
+            },
+          ],
+          currentSession: {
+              ...prevSession,
+          },
+        });
+      }
+      console.error('Previous session not found');
+      return state;
     case 'ADD_NOTE':
       return Object.assign({}, state, {
         currentSession: {
