@@ -1,38 +1,176 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  background-color: #eaeaea;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Navbar {
+  flex: 0 0 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Title {
+  width: 30%;
+  padding-left: 40px;
+  font-size: 65px;
+  font-family: Avenir;
+  color: #ababab;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Options {
+  width: 40%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-evenly;
 }
 
-.App-link {
-  color: #61dafb;
+.Presets {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Preset {
+  margin-right: 20px;
+}
+
+.Selected {
+  background-color: #6ac8ff;
+}
+
+.CustomInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.InputPair {
+  margin-top: 15px;
+  display: flex;
+}
+
+.YoutubeInput {
+  margin-right: 10px;
+  width: 315px;
+  height: 20px;
+}
+
+button {
+  background-color: buttonface;
+}
+
+.LoadPrevious {
+  --padding: 20px;
+  padding-right: var(--padding);
+  width: calc(30% - var(--padding));
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: space-between;
+}
+
+.Card {
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.Body {
+  --margin: 12px;
+  margin: var(--margin);
+  width: calc(100% - var(--margin) * 2);
+  flex: 1 2 auto;
+  min-height: 0;
+  display: flex;
+  flex-flow: row;
+}
+
+.RightSide {
+  flex: 0 1 400px;
+  height: 100%;
+}
+
+.Notepad {
+  --padding: 5px;
+  padding: var(--padding);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Header {
+  flex: 0 0 auto;
+  font-size: 24px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.NotepadInfo {
+  font-size: 14px;
+  color: #ababab;
+}
+
+.Notes {
+  flex: 1 1 auto;
+  padding: 0 5px 0 5px;
+  overflow-y: auto;
+}
+
+.Note {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.NoteText {
+  flex: 1 1 auto;
+  word-wrap: normal;
+}
+
+.NoteTime {
+  color: #ababab;
+  flex: 0 0 100px;
+  text-align: right;
+}
+
+.NotepadInput  {
+  flex: 0 1 100px;
+  width: 100%;
+}
+
+textarea {
+  width: 98%;
+  height: 95%;
+}
+
+.LeftSide {
+  flex: 1 1 auto;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  min-height: 0;
+  min-width: 0;
+  margin-right: 12px;
+}
+
+.PlayerWrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  background-color: black;
+}
+
+.LinkshareWrapper {
+  margin-top: 12px;
+  width: 100%;
+  flex: 0 1 100px;
+}
+
+.LinkshareBody {
+  --padding: 5px;
+  padding: var(--padding);
+  height: 100%;
 }
